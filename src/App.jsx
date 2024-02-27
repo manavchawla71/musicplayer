@@ -7,15 +7,27 @@ function App() {
   const songs = audios;
   const [currentsong, setcurrentsong] = useState(songs[0]);
   const [currentindex, setcurrentindex] = useState(null);
+  const nextSong = () => {
+    if (currentindex + 1 < audios.length) {
+      setcurrentindex(currentindex + 1);
+      setcurrentsong(audios[currentindex + 1]);
+    }
+  };
+  const prevSong = () => {
+    if (currentindex > 0) {
+      setcurrentindex(currentindex - 1);
+      setcurrentsong(audios[currentindex - 1]);
+    }
+  };
   return (
-    <>
+    <div className="player-main">
       <Player
-        currentSong={currentSong}
-        currentIndex={currentIndex}
+        currentsong={currentsong}
+        currentindex={currentindex}
         nextSong={nextSong}
         prevSong={prevSong}
       />
-    </>
+    </div>
   );
 }
 

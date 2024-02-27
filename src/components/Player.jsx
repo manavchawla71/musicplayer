@@ -1,8 +1,14 @@
 import React from "react";
+import AudioSpectrum from "react-audio-spectrum";
+import {
+  BiPlayCircle,
+  BiPauseCircle,
+  BiSkipPreviousCircle,
+  BiSkipNextCircle,
+} from "react-icons/bi";
 import { useState } from "react";
-// import { audios } from "./audios/audiodata";
-const Player = () => {
-  const [currentindex, setcurrentindex] = useState(null);
+const Player = ({ currentSong, currentIndex, nextSong, prevSong }) => {
+  const [isplaying, setisplaying] = useState(false);
   return <div></div>;
 };
 
