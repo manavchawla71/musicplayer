@@ -1,29 +1,31 @@
 import { useState } from "react";
-import Player from "./components/Player";
-import { audios } from "./audiodata";
 import "./App.css";
-
+import { audios } from "./audiodata";
+import Player from "./components/Player";
 function App() {
   const songs = audios;
-  const [currentsong, setcurrentsong] = useState(songs[0]);
-  const [currentindex, setcurrentindex] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
+
   const nextSong = () => {
-    if (currentindex + 1 < audios.length) {
-      setcurrentindex(currentindex + 1);
-      setcurrentsong(audios[currentindex + 1]);
+    if (currentIndex + 1 < audios.length) {
+      setCurrentIndex(currentIndex + 1);
+      setCurrentSong(audios[currentIndex + 1]);
     }
   };
+
   const prevSong = () => {
-    if (currentindex > 0) {
-      setcurrentindex(currentindex - 1);
-      setcurrentsong(audios[currentindex - 1]);
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setCurrentSong(audios[currentIndex - 1]);
     }
   };
+
   return (
     <div className="player-main">
       <Player
-        currentsong={currentsong}
-        currentindex={currentindex}
+        currentSong={currentSong}
+        currentIndex={currentIndex}
         nextSong={nextSong}
         prevSong={prevSong}
       />
